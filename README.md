@@ -15,3 +15,11 @@ Path to config:
 ```
 ~/.config/nvim/coc-settings.json
 ```
+
+## fzf
+
+have to install **fzf** before using that in neovim
+
+[[GitHub](https://github.com/junegunn/fzf#as-vim-plugin)]
+
+
