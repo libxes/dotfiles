@@ -3,6 +3,8 @@
 
 ZSH_DISABLE_COMPFIX="true"
 
+export TERM="xterm-256color"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mkc0de/.oh-my-zsh"
 
@@ -198,3 +200,17 @@ function code {
         open -a "Visual Studio Code" "$argPath"
     fi
 }
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+###
+
+# tmux
+# starting tmux when open terminal and run zsh env
+if [ "$TMUX" = "" ]; then tmux; fi
