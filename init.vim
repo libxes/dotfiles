@@ -21,15 +21,40 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim'
+Plug 'rakr/vim-one'
+Plug 'tomasr/molokai'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" Languages supporting
+Plug 'sheerun/vim-polyglot'
 
 " Initialize plugin system
 call plug#end()
 
 " main configuration
 syntax on
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme onedark
+set number
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+colorscheme onehalfdark
+
+" airline configuration
+let g:airline_theme = 'onehalf'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" coc
+" prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+set tabstop=4
+set shiftwidth=2
+set expandtab
