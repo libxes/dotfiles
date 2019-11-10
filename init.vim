@@ -46,7 +46,7 @@ call plug#end()
 syntax on
 set number
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-colorscheme jellybeans
+colorscheme gruvbox
 
 " airline configuration
 let g:airline_theme = 'tomorrow'

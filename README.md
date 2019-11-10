@@ -22,4 +22,32 @@ have to install **fzf** before using that in neovim
 
 [[GitHub](https://github.com/junegunn/fzf#as-vim-plugin)]
 
+## setup
 
+### neovim config
+
+```
+ln -s /path/dotfiles/init.vim ~/.config/nvim/init.vim
+```
+
+### tmux config
+
+```
+ln -s /path/dotfiles/.tmux.conf ~/.tmux.conf
+```
+
+```
+ln -s /path/dotfiles/.tmux.conf.local ~/.tmux.conf.local
+```
+
+### zsh config
+
+```
+ln -s /path/dotfiles/.zshrc ~/.zshrc
+```
+
+### coc.nvim config
+
+```
+ln -s /path/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
+```
