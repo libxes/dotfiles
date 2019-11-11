@@ -76,6 +76,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
     git
     zsh-autosuggestions
+    ripgrep
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -211,9 +212,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 
+# fzf
+# it excludes list of files which ignored by gitignore
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-###
 
 # tmux
 # starting tmux when open terminal and run zsh env
 if [ "$TMUX" = "" ]; then tmux; fi
+

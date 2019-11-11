@@ -14,9 +14,6 @@ Plug 'junegunn/vim-github-dashboard'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 " Colorschemes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
@@ -35,6 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scrooloose/nerdcommenter'
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Languages supporting
 Plug 'sheerun/vim-polyglot'
@@ -67,3 +65,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 set tabstop=4
 set shiftwidth=2
 set expandtab
+
+" fzf
+nnoremap <silent> <C-p> :FZF -m<CR>

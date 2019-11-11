@@ -22,6 +22,30 @@ have to install **fzf** before using that in neovim
 
 [[GitHub](https://github.com/junegunn/fzf#as-vim-plugin)]
 
+```
+brew install fzf
+```
+
+## ripgrep
+
+also ripgrep
+
+[[GitHub](https://github.com/BurntSushi/ripgrep)]
+
+```
+brew install ripgrep
+```
+
+## tmux
+
+for controling sessions in terminal
+
+[[GitHub](https://github.com/tmux/tmux)]
+
+```
+brew install tmux
+```
+
 ## setup
 
 ### neovim config
