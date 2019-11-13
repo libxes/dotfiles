@@ -11,8 +11,11 @@ Plug 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
 Plug 'junegunn/vim-github-dashboard'
 
-" On-demand loading
+" NERDTree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
@@ -36,6 +39,10 @@ Plug 'junegunn/fzf.vim'
 
 " Languages supporting
 Plug 'sheerun/vim-polyglot'
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Some Git things
+Plug 'airblade/vim-gitgutter'
 
 " Initialize plugin system
 call plug#end()
@@ -57,8 +64,11 @@ let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIgnore = ['^node_modules$']
 
 " coc
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-tslint-plugin']
+
 " prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -68,3 +78,7 @@ set expandtab
 
 " fzf
 nnoremap <silent> <C-p> :FZF -m<CR>
+
+" nerdcommenter
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle

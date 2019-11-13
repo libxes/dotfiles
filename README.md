@@ -75,3 +75,15 @@ ln -s /path/dotfiles/.zshrc ~/.zshrc
 ```
 ln -s /path/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 ```
+
+### iTerm 2 settings
+
+**keybindings**
+
+For NERDCommenter set keybinding "Command+/":
+
+1. Go to Preferences -> Keys -> Key Bindings
+2. Click "Add"
+3. Set Keyboard Shortcut to "Command+/"
+4. Choose Action as "Send Text"
+5. Enter value to send: ++ (see vim config in section NERDCommenter)
