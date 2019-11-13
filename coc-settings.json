@@ -6,5 +6,6 @@
     "json",
     "javascriptreact",
     "typescript.tsx"
-  ]
+  ],
+  "eslint.filetypes": ["javascript", "javascriptreact"]
 }

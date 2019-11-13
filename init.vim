@@ -12,7 +12,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 
 " NERDTree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -36,6 +36,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scrooloose/nerdcommenter'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'jlanzarotta/bufexplorer'
 
 " Languages supporting
 Plug 'sheerun/vim-polyglot'
@@ -51,6 +52,7 @@ call plug#end()
 syntax on
 set number
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 
 " airline configuration
@@ -64,6 +66,7 @@ let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
 let g:NERDTreeIgnore = ['^node_modules$']
 
 " coc
@@ -82,3 +85,10 @@ nnoremap <silent> <C-p> :FZF -m<CR>
 " nerdcommenter
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
+" keybindings
+nnoremap <silent> <C-g> :BufExplorer<CR>
+nnoremap <silent> <C-]> :bn<CR>
+nnoremap <silent> <C-[> :bp<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
