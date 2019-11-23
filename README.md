@@ -64,6 +64,11 @@ ln -s /path/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s /path/dotfiles/.tmux.conf.local ~/.tmux.conf.local
 ```
 
+update tmux config
+```
+tmux source ~/.tmux.conf
+```
+
 ### zsh config
 
 ```
