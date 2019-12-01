@@ -109,6 +109,7 @@ fi
 alias vim="nvim"
 alias vi="nvim"
 alias oldvim="\vim"
+alias chrnocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 
 
 # my settings
