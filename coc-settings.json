@@ -5,7 +5,8 @@
     "typescriptreact",
     "json",
     "javascriptreact",
-    "typescript.tsx"
+    "typescript.tsx",
+    "scss"
   ],
-  "eslint.filetypes": ["javascript", "javascriptreact"]
+  "eslint.filetypes": ["javascript", "javascriptreact", "css", "scss"]
 }
