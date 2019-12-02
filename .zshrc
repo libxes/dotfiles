@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 ZSH_DISABLE_COMPFIX="true"
 
@@ -109,6 +109,7 @@ fi
 alias vim="nvim"
 alias vi="nvim"
 alias oldvim="\vim"
+alias chrnocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 
 
 # my settings
