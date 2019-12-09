@@ -32,15 +32,20 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'w0ng/vim-hybrid'
 
 " Languages supporting
 Plug 'sheerun/vim-polyglot'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Some Git things
 Plug 'airblade/vim-gitgutter'
@@ -52,17 +57,21 @@ call plug#end()
 syntax on
 set number
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+"let g:gruvbox_contrast_dark = 'hard'
+"set t_Co=256
+set background=dark
+colorscheme PaperColor
+set termguicolors
 
 " airline configuration
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'minimalist'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#error_symbol = 'E:'
-let airline#extensions#coc#warning_symbol = 'W:'
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+"let g:airline#extensions#coc#enabled = 1
+"let airline#extensions#coc#error_symbol = 'E:'
+"let airline#extensions#coc#warning_symbol = 'W:'
+"let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -70,7 +79,7 @@ map <C-m> :NERDTreeFind<CR>
 let g:NERDTreeIgnore = ['^node_modules$']
 
 " coc
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-tslint-plugin']
+"let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-tslint-plugin']
 
 " prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -88,7 +97,7 @@ nmap ++ <plug>NERDCommenterToggle
 
 " keybindings
 nnoremap <silent> <C-g> :BufExplorer<CR>
-nnoremap <silent> <C-]> :bn<CR>
-nnoremap <silent> <C-[> :bp<CR>
+"nnoremap <C-Left> <Esc>:bn<CR>
+"nnoremap <C-Right> <Esc>:bp<CR>
 
-nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gd <Plug>(coc-definition)
