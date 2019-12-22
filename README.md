@@ -4,7 +4,7 @@ My terminal setup:
 
 - iTerm2
 - - colorscheme: [gruvbox dark](https://github.com/morhetz/gruvbox-contrib/blob/master/iterm2/gruvbox-dark.itermcolors)
-- - font: [Meslo Nerd Font](https://www.nerdfonts.com/font-downloads)
+- - font: [Fira Code Retina (Nerd Fonts)](https://www.nerdfonts.com/font-downloads)
 
 ## Conquer of Completion
 
