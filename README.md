@@ -92,3 +92,12 @@ For NERDCommenter set keybinding "Command+/":
 3. Set Keyboard Shortcut to "Command+/"
 4. Choose Action as "Send Text"
 5. Enter value to send: ++ (see vim config in section NERDCommenter)
+
+**tmux neovim colors fix**
+
+```
+tmux attach
+tmux set-option -ga terminal-overrides ",xterm-256color:Tc"
+tmux detach
+tmux attach
+```
