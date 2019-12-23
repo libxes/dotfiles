@@ -111,6 +111,10 @@ alias vi="nvim"
 alias oldvim="\vim"
 alias chrnocors="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security"
 alias chrome="open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+# vim settings
+alias vimset="vim ~/.config/nvim/init.vim"
+# coc.nvim settings
+alias cocset="vim ~/.config/nvim/coc-settings.json"
 
 
 # my settings
