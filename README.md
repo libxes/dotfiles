@@ -101,3 +101,10 @@ tmux set-option -ga terminal-overrides ",xterm-256color:Tc"
 tmux detach
 tmux attach
 ```
+
+**macOS keys settings**
+
+1. Go to System Preferences
+2. Section "Keyboard"
+3. Check "Use F1, F2, etc. keys as standard function keys"
+
