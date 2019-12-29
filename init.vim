@@ -80,10 +80,10 @@ syntax on
 set number
 let g:material_theme_style = 'darker'
 let g:quantum_black=1
-colorscheme quantum
+colorscheme gruvbox
 
 " airline configuration
-let g:airline_theme = 'quantum'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#coc#enabled = 1
@@ -97,6 +97,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-m> :NERDTreeFind<CR>
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeShowHidden = 1
 
 " coc configuration
 "let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-tslint-plugin']
