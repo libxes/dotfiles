@@ -110,7 +110,8 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Fix autofix problem of current line
 nmap <F10>x <Plug>(coc-fix-current)
-"nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gtd <Plug>(coc-definition)
+
 
 " prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
