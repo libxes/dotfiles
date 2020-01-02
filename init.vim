@@ -59,6 +59,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'cocopon/iceberg.vim'
 
 " Languages supporting
 Plug 'sheerun/vim-polyglot'
@@ -80,10 +81,10 @@ syntax on
 set number
 let g:material_theme_style = 'darker'
 let g:quantum_black=1
-colorscheme gruvbox
+colorscheme iceberg
 
 " airline configuration
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'iceberg'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#coc#enabled = 1

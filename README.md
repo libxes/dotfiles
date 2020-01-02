@@ -56,12 +56,16 @@ ln -s /path/dotfiles/init.vim ~/.config/nvim/init.vim
 
 ### tmux config
 
-```
+```bash
 ln -s /path/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
-```
+```bash
 ln -s /path/dotfiles/.tmux.conf.local ~/.tmux.conf.local
+```
+
+```
+ln -s /path/dotfiles/iceberg.tmux.conf ~/.tmux/iceberg.tmux.conf
 ```
 
 update tmux config
