@@ -81,10 +81,10 @@ syntax on
 set number
 let g:material_theme_style = 'darker'
 let g:quantum_black=1
-colorscheme iceberg
+colorscheme palenight
 
 " airline configuration
-let g:airline_theme = 'iceberg'
+let g:airline_theme = 'palenight'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#coc#enabled = 1
@@ -133,3 +133,6 @@ nnoremap <silent> <C-g> :BufExplorer<CR>
 "nnoremap <C-Left> <Esc>:bn<CR>
 "nnoremap <C-Right> <Esc>:bp<CR>
 
+" system clipboard
+" copy to sys clipboard
+vnoremap <C-c> "+y
