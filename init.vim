@@ -61,19 +61,21 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'cocopon/iceberg.vim'
 
-" Languages supporting
+" languages supporting
 Plug 'sheerun/vim-polyglot'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
 
-" Some Git things
+" git things
 Plug 'airblade/vim-gitgutter'
 
-" Common plugins
+" common plugins
 Plug 'mattn/emmet-vim'
+Plug 'othree/xml.vim'
+Plug 'plasticboy/vim-markdown'
 
-" Initialize plugin system
+" initialize plugin system
 call plug#end()
 
 " main configuration
@@ -128,6 +130,9 @@ nnoremap <silent> <C-p> :FZF -m<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
+" markdown
+let g:vim_markdown_folding_disabled = 1
+
 " keybindings
 nnoremap <silent> <C-g> :BufExplorer<CR>
 "nnoremap <C-Left> <Esc>:bn<CR>
@@ -136,3 +141,4 @@ nnoremap <silent> <C-g> :BufExplorer<CR>
 " system clipboard
 " copy to sys clipboard
 vnoremap <C-c> "+y
+
