@@ -38,7 +38,6 @@ Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nanotech/jellybeans.vim'
-Plug 'sickill/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
@@ -74,6 +73,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'othree/xml.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-fugitive'
 
 " initialize plugin system
 call plug#end()
@@ -83,10 +83,10 @@ syntax on
 set number
 let g:material_theme_style = 'darker'
 let g:quantum_black=1
-colorscheme palenight
+colorscheme gruvbox
 
 " airline configuration
-let g:airline_theme = 'palenight'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#coc#enabled = 1
