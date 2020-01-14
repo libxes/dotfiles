@@ -53,12 +53,12 @@ Plug 'w0ng/vim-hybrid'
 Plug 'kaicataldo/material.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'dracula/vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'cocopon/iceberg.vim'
+Plug 'mkl0g/palenight.vim'
 
 " languages supporting
 Plug 'sheerun/vim-polyglot'
@@ -74,6 +74,9 @@ Plug 'mattn/emmet-vim'
 Plug 'othree/xml.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'Yggdroot/indentLine'
+Plug 'ap/vim-css-color'
 
 " initialize plugin system
 call plug#end()
@@ -81,12 +84,13 @@ call plug#end()
 " main configuration
 syntax on
 set number
+let g:material_terminal_italics = 1
 let g:material_theme_style = 'darker'
-let g:quantum_black=1
-colorscheme gruvbox
+"let g:quantum_black=1
+colorscheme material
 
 " airline configuration
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'minimalist'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#coc#enabled = 1
@@ -142,3 +146,5 @@ nnoremap <silent> <C-g> :BufExplorer<CR>
 " copy to sys clipboard
 vnoremap <C-c> "+y
 
+let g:indentLine_color_term = 239
+let g:indentLine_char = '▏'
