@@ -98,6 +98,18 @@ let g:airline#extensions#tabline#enabled = 1
 "let airline#extensions#coc#warning_symbol = 'W:'
 "let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 
+" keybindings
+let mapleader = ","
+nnoremap <silent> <C-g> :BufExplorer<CR>
+"nnoremap <C-Left> <Esc>:bn<CR>
+"nnoremap <C-Right> <Esc>:bp<CR>
+
+" system clipboard
+" copy to sys clipboard
+vnoremap <C-c> "+y
+
+let g:indentLine_color_term = 239
+let g:indentLine_char = '▏'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -111,14 +123,13 @@ let g:NERDTreeShowHidden = 1
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
-nmap <F10>rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 " navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Fix autofix problem of current line
-nmap <F10>x <Plug>(coc-fix-current)
+nmap <leader>qf <Plug>(coc-fix-current)
 nmap <silent> gtd <Plug>(coc-definition)
-
 
 " prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -136,15 +147,3 @@ nmap ++ <plug>NERDCommenterToggle
 
 " markdown
 let g:vim_markdown_folding_disabled = 1
-
-" keybindings
-nnoremap <silent> <C-g> :BufExplorer<CR>
-"nnoremap <C-Left> <Esc>:bn<CR>
-"nnoremap <C-Right> <Esc>:bp<CR>
-
-" system clipboard
-" copy to sys clipboard
-vnoremap <C-c> "+y
-
-let g:indentLine_color_term = 239
-let g:indentLine_char = '▏'
