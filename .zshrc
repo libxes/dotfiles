@@ -116,9 +116,11 @@ alias vimset="vim ~/.config/nvim/init.vim"
 # coc.nvim settings
 alias cocset="vim ~/.config/nvim/coc-settings.json"
 
-# default player
+# apps
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
+# git
+alias pullhead='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 
 # my settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
