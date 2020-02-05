@@ -118,6 +118,7 @@ alias cocset="vim ~/.config/nvim/coc-settings.json"
 
 # apps
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias hnews='haxor-news'
 
 # git
 alias pullhead='git pull origin $(git rev-parse --abbrev-ref HEAD)'
