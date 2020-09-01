@@ -205,17 +205,6 @@ POWERLEVEL9K_SUDO_ICON=$'\uF09C'
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# vscode 
-function code {
-    if [[ $# = 0 ]]
-    then
-        open -a "Visual Studio Code"
-    else
-        local argPath="$1"
-        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
-        open -a "Visual Studio Code" "$argPath"
-    fi
-}
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -232,4 +221,9 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 # tmux
 # starting tmux when open terminal and run zsh env
 if [ "$TMUX" = "" ]; then tmux; fi
+
+eval "$(starship init zsh)"
+
+# vscode
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
