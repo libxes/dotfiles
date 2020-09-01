@@ -74,6 +74,9 @@ tmux source ~/.tmux.conf
 ln -s /path/dotfiles/.zshrc ~/.zshrc
 ```
 
+- [starship](https://github.com/starship/starship)
+
+
 ### coc.nvim config
 
 ```
