@@ -62,13 +62,15 @@ ln -s /path/dotfiles/.tmux.conf ~/.tmux.conf
 
 [Using Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
-```
-update tmux config
+update tmux config:
+
 ```
 tmux source ~/.tmux.conf
 ```
 
 ### zsh config
+
+- [starship](https://github.com/starship/starship)
 
 ```
 ln -s /path/dotfiles/.zshrc ~/.zshrc
