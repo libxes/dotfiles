@@ -1,3 +1,6 @@
+set hidden
+set mouse=a
+
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -15,7 +18,8 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
+" homebrew fzf to the vim path:
+set rtp+=/usr/local/opt/fzf
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -39,32 +43,38 @@ Plug 'tomasr/molokai'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nanotech/jellybeans.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdcommenter'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'w0ng/vim-hybrid'
 Plug 'kaicataldo/material.vim'
 Plug 'mhartington/oceanic-next'
-Plug 'dracula/vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'cocopon/iceberg.vim'
-Plug 'mkl0g/palenight.vim'
+Plug 'haishanh/night-owl.vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'sainnhe/sonokai'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/forest-night'
+
+" uncategorized
+Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jlanzarotta/bufexplorer'
 
 " languages supporting
 Plug 'sheerun/vim-polyglot'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
+Plug 'kkoomen/vim-doge'
+Plug 'neoclide/jsonc.vim'
 
 " git things
 Plug 'airblade/vim-gitgutter'
@@ -72,51 +82,79 @@ Plug 'airblade/vim-gitgutter'
 " common plugins
 Plug 'mattn/emmet-vim'
 Plug 'othree/xml.vim'
-Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-css-color'
+
+" lightline
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 
 " initialize plugin system
 call plug#end()
 
 " main configuration
 syntax on
+set cursorline
 set number
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'darker'
-"let g:quantum_black=1
-colorscheme material
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
-" airline configuration
-let g:airline_theme = 'minimalist'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#coc#enabled = 1
-"let airline#extensions#coc#error_symbol = 'E:'
-"let airline#extensions#coc#warning_symbol = 'W:'
-"let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+
+" lightline configuration
+set showtabline=2
+let g:lightline = { 'colorscheme': 'gruvbox_material', 	
+    \ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+    \ 'tabline': {
+    \   'left': [ ['buffers'] ]
+    \ },
+    \ 'component_expand': {
+    \   'buffers': 'lightline#bufferline#buffers'
+    \ },
+    \ 'component_type': {
+    \   'buffers': 'tabsel'
+    \ }
+  \ }
+
+let g:lightline#bufferline#enable_devicons  = 1
+let g:lightline#bufferline#enable_nerdfont = 1
+
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+
 
 " keybindings
 let mapleader = ","
 nnoremap <silent> <C-g> :BufExplorer<CR>
-"nnoremap <C-Left> <Esc>:bn<CR>
-"nnoremap <C-Right> <Esc>:bp<CR>
+nnoremap <leader>l :bn<CR>
+nnoremap <leader>h :bp<CR>
 
 " system clipboard
 " copy to sys clipboard
 vnoremap <C-c> "+y
 
+nmap <C-P> :GitFiles<CR>
+nmap <C-O> :Rg<CR>
+
 let g:indentLine_color_term = 239
 let g:indentLine_char = '▏'
 
-" NERDTree
+" coc explorer
+" map <C-n> :CocCommand explorer<CR>
+
+" nerdtree
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :NERDTreeFind<CR>
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeIgnore = ['^node_modules$', '.DS_Store$']
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
 
 " coc configuration
 "let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-tslint-plugin']
@@ -138,12 +176,46 @@ set tabstop=4
 set shiftwidth=2
 set expandtab
 
-" fzf
-nnoremap <silent> <C-p> :FZF -m<CR>
-
 " nerdcommenter
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-" markdown
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+
+set lazyredraw
+let NERDTreeHighlightCursorline = 0
+
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+
+" fzf
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo' } }
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+"Get Files
+command! -bang -nargs=? -complete=dir GitFiles
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+" Get text in files with Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
