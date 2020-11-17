@@ -32,6 +32,8 @@ alias alacrittyset="vim ~/.config/alacritty/alacritty.yml"
 # nnn
 alias n="nnn -de"
 
+# dotfiles
+alias dotfiles="cd ~/projects/personal/dotfiles"
 
 # apps aliases
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
