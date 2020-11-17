@@ -27,10 +27,6 @@ Plug 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
 Plug 'junegunn/vim-github-dashboard'
 
-" NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 " Colorschemes
@@ -59,6 +55,12 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'sainnhe/sonokai'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'
+Plug 'sainnhe/edge'
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'fenetikm/falcon'
+Plug 'doums/darcula'
+Plug 'sainnhe/sonokai'
 
 " uncategorized
 Plug 'junegunn/fzf.vim'
@@ -67,9 +69,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'airblade/vim-rooter'
+Plug 'rhysd/vim-color-spring-night'
+Plug 'christoomey/vim-tmux-navigator'
 
 " languages supporting
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter'
+"Plug 'sheerun/vim-polyglot'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
@@ -90,6 +96,7 @@ Plug 'ap/vim-css-color'
 " lightline
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'cocopon/lightline-hybrid.vim'
 
 " initialize plugin system
 call plug#end()
@@ -98,13 +105,16 @@ call plug#end()
 syntax on
 set cursorline
 set number
-let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
+"let g:gruvbox_material_background = 'hard'
+let g:material_theme_style = 'darker'
+let g:material_terminal_italics = 1
+let g:sonokai_style = 'atlantis'
+colorscheme sonokai
 
 
 " lightline configuration
 set showtabline=2
-let g:lightline = { 'colorscheme': 'gruvbox_material', 	
+let g:lightline = { 'colorscheme': 'sonokai', 	
     \ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -146,15 +156,7 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '▏'
 
 " coc explorer
-" map <C-n> :CocCommand explorer<CR>
-
-" nerdtree
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :NERDTreeFind<CR>
-let g:NERDTreeIgnore = ['^node_modules$', '.DS_Store$']
-let g:NERDTreeWinPos = "right"
-let g:NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
+map <C-n> :CocCommand explorer<CR>
 
 " coc configuration
 "let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-json', 'coc-tslint-plugin']
@@ -182,16 +184,14 @@ nmap ++ <plug>NERDCommenterToggle
 
 let g:vim_markdown_conceal = 0
 
-set lazyredraw
-let NERDTreeHighlightCursorline = 0
+"set lazyredraw
 
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 
 " fzf
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo' } }
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_OPTS = "--layout=reverse --info=inline --preview 'bat --color=bg+:#282a2e,bg:#1d1f21,spinner:#81a2be,hl:#707880,fg:#c5c8c6,header:#707880,info:#8abeb7,pointer:#81a2be,marker:#81a2be,fg+:#c5c8c6,prompt:#81a2be,hl+:#81a2be --style=header,grid --line-range :300 {}'"
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -217,5 +217,25 @@ command! -bang -nargs=? -complete=dir GitFiles
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
+
+" configure treesitter
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  indent = {
+    enable = true
+  }
+}
+EOF
 

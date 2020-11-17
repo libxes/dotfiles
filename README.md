@@ -2,38 +2,27 @@
 
 My terminal setup:
 
-- iTerm2
-- - colorscheme: [gruvbox dark](https://github.com/morhetz/gruvbox-contrib/blob/master/iterm2/gruvbox-dark.itermcolors)
+- [Alacritty](https://github.com/alacritty/alacritty)
+- - colorscheme: Monokai (Pro) / [Sonokai](https://github.com/sainnhe/sonokai)
 - - font: [Fira Code Retina (Nerd Fonts)](https://www.nerdfonts.com/font-downloads)
+- [neovim](https://github.com/neovim/neovim)
+- [nnn](https://github.com/jarun/nnn)
+- [fish shell](https://github.com/fish-shell/fish-shell)
+- [starship prompt](https://github.com/starship/starship)
+- [lazygit](https://github.com/jesseduffield/lazygit)
 
-## Conquer of Completion
+## Alacritty
 
-[[GitHub](https://github.com/neoclide/coc.nvim)]
-
-Path to config:
-
-```
-~/.config/nvim/coc-settings.json
-```
-
-## fzf
-
-have to install **fzf** before using that in neovim
-
-[[GitHub](https://github.com/junegunn/fzf#as-vim-plugin)]
+**Installation**
 
 ```
-brew install fzf
+brew cask install alacritty
 ```
 
-## ripgrep
-
-also ripgrep
-
-[[GitHub](https://github.com/BurntSushi/ripgrep)]
+**setup config**
 
 ```
-brew install ripgrep
+ln -s /path/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 ```
 
 ## tmux
@@ -42,21 +31,13 @@ for controling sessions in terminal
 
 [[GitHub](https://github.com/tmux/tmux)]
 
-```
-brew install tmux
-```
+**Installation**
 
-## setup
+Just install from source instead of using brew
 
-### neovim config
+**setup config**
 
 ```
-ln -s /path/dotfiles/init.vim ~/.config/nvim/init.vim
-```
-
-### tmux config
-
-```bash
 ln -s /path/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
@@ -68,16 +49,71 @@ update tmux config:
 tmux source ~/.tmux.conf
 ```
 
-### zsh config
-
-- [starship](https://github.com/starship/starship)
+or
 
 ```
-ln -s /path/dotfiles/.zshrc ~/.zshrc
+tmuxsource
 ```
 
-- [starship](https://github.com/starship/starship)
+## fish-shell
 
+**Installation**
+
+```
+brew install fish
+```
+
+**setup config**
+
+```
+ln -s /path/dotfiles/.config.fish ~/.config/fish/config.fish
+```
+
+## starship
+
+**Installation**
+
+```
+brew install starship
+```
+
+## fzf
+
+**Installation**
+
+```
+brew install fzf
+```
+
+## ripgrep
+
+search-tool
+
+[[GitHub](https://github.com/BurntSushi/ripgrep)]
+
+```
+brew install ripgrep
+```
+
+## bat
+
+[cat](https://en.wikipedia.org/wiki/Cat_(Unix)) clone with syntax hightlighting
+
+> need for syntax hightlighting in fzf preview
+
+```
+brew install bat
+```
+
+## Conquer of Completion
+
+[[GitHub](https://github.com/neoclide/coc.nvim)]
+
+Path to config:
+
+```
+~/.config/nvim/coc-settings.json
+```
 
 ### coc.nvim config
 
@@ -85,17 +121,7 @@ ln -s /path/dotfiles/.zshrc ~/.zshrc
 ln -s /path/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 ```
 
-### iTerm 2 settings
 
-**keybindings**
-
-For NERDCommenter set keybinding "Command+/":
-
-1. Go to Preferences -> Keys -> Key Bindings
-2. Click "Add"
-3. Set Keyboard Shortcut to "Command+/"
-4. Choose Action as "Send Text"
-5. Enter value to send: ++ (see vim config in section NERDCommenter)
 
 **tmux neovim colors fix**
 
@@ -105,10 +131,4 @@ tmux set-option -ga terminal-overrides ",xterm-256color:Tc"
 tmux detach
 tmux attach
 ```
-
-**macOS keys settings**
-
-1. Go to System Preferences
-2. Section "Keyboard"
-3. Check "Use F1, F2, etc. keys as standard function keys"
 

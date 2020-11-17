@@ -8,6 +8,7 @@
     "typescript.tsx",
     "scss"
   ],
-  "eslint.filetypes": ["javascript", "javascriptreact", "css", "scss"],
+  "eslint.filetypes": ["javascript", "javascriptreact"],
+  "eslint.quiet": true,
   "diagnostic.checkCurrentLine": true
 }
